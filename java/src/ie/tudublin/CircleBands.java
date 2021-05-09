@@ -15,18 +15,24 @@ public class CircleBands
 
     public void render()
     {
+        // rainbow colour
         mv.colorMode(PApplet.HSB);
         mv.fill(mv.frameCount % 255, 255, 255);
+
+        // drawing circle
         mv.circle(mv.x1, mv.y1, mv.getSmoothedAmplitude() * 1000);
         mv.fill(0, 0, 0);
-        mv.circle(mv.x1, mv.y1, mv.getSmoothedAmplitude() * 300);
+        mv.circle(mv.x1, mv.y1, mv.getSmoothedAmplitude() * 800);
 
+        // rotating the bar charts to fit around circle
         float r = (mv.getSmoothedAmplitude() * 1000) / 2;
         float gap = (float) (2 * r * Math.sin(Math.PI / mv.getBands().length));
         float angle = 320;
         float angles[] = {70, 110, 150, 190, 230, 270, 310, 350, 390};
 
+        // no border
         mv.noStroke();
+
 
         for (int i = 0; i < mv.getBands().length ; i++, angle += 40)
         {
